@@ -23,7 +23,10 @@ class EvernoteClient(object):
         self.sandbox = options.get('sandbox', True)
         self.china = options.get('china', False)
         if self.sandbox:
-            default_service_host = 'sandbox.evernote.com'
+            if self.china:
+                default_service_host = 'sandbox.yinxiang.com'
+            else:
+                default_service_host = 'sandbox.evernote.com'
         elif self.china:
             default_service_host = 'app.yinxiang.com'
         else:
